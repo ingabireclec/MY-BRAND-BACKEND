@@ -5,8 +5,9 @@ import queryRouter from "./src/routes/queries.routes.js";
 import commentRouter from "./src/routes/comments.routes.js";
 import authenticationRoutes from "./src/routes/auth.routes.js";
 import bodyParser from "body-parser";
-const PORT = process.env.PORT || 5000;
+
 const app = express();
+
 app.use(
   bodyParser.json({
     limit: "50mb",
@@ -27,10 +28,7 @@ app.get("/", (_, res) => {
     message: "Welcome",
   });
 });
-app.listen(`${PORT}`, () => {
-  console.log(`Server has started on http://localhost:${PORT} `);
-});
-
+const PORT = process.env.PORT || 5000;
 mongoose.set("strictQuery", false);
 mongoose
   .connect("mongodb://localhost:27017/andeladb", {
@@ -43,4 +41,5 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
+
 export default app;

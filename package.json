@@ -11,7 +11,7 @@
     "build": "babel src -d dist",
     "test": " node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll --coverage --verbose --silent --detectOpenHandles",
     "start": "npm run build && node dist/index.js",
-    "dev": "nodemon --exec babel-node index.js",
+    "dev": "nodemon --exec babel-node server.js",
     "coveralls": "NODE_OPTIONS=--experimental-vm-modules jest --coverage && cat ./coverage/lcov.info | coveralls --testTimeout=45000"
   },
   "keywords": [],
@@ -43,7 +43,7 @@
     "coverage-node": "^8.0.0",
     "coveralls": "^3.1.1",
     "cross-env": "^7.0.3",
-    "jest": "^29.3.1",
+    "jest": "^29.4.2",
     "supertest": "^6.3.3"
   }
 }

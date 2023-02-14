@@ -1,9 +1,10 @@
 import cloudinary from "../imageUpload/imageUpload.js";
 import blogModel from "../models/Blogs.model.js";
 import blogLike from "../models/blogLike.model.js";
+
 const getAllBlogs = async (req, res) => {
   const blogs = await blogModel.find();
-  res.json(blogs);
+  return res.json(blogs);
 };
 
 const createBlogWithImage = async (req, res) => {
