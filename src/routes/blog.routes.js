@@ -39,6 +39,6 @@ blogRouter.patch(
   updateBlog
 );
 blogRouter.delete("/blogs/:id", [isLoggedIn, isAdmin], deleteBlog);
-blogRouter.post("/blogs/:id/like", [isLoggedIn], toggleLike);
+blogRouter.post("/blogs/:id/like", toggleLike);
 
 export default blogRouter;

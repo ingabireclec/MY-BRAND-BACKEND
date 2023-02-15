@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">65.57% </span>
+                <span class="strong">62.29% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>40/61</span>
+                <span class='fraction'>38/61</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">43.75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/16</span>
+                <span class='fraction'>7/16</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">65.57% </span>
+                <span class="strong">62.29% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>40/61</span>
+                <span class='fraction'>38/61</span>
             </div>
         
             
@@ -260,11 +260,11 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -311,20 +311,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -393,8 +393,8 @@ const updateBlog = async (req, res) =&gt; {
 <span class="cstat-no" title="statement not covered" >      blog.image = result.url;</span>
     }
     await blog.save();
-    console.log(blog);
-    res.send(blog);
+<span class="cstat-no" title="statement not covered" >    console.log(blog);</span>
+<span class="cstat-no" title="statement not covered" >    res.send(blog);</span>
   } catch (err) {
     res.status(404);
     res.json({ error: "Blog doesn't exist" });
@@ -444,8 +444,8 @@ export async function toggleLike(req, res) {
       user_id: req.user.id,
       blog_id: req.params.id,
     });
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (liked) {
-      return res.status(400).send("You've already liked this blog");
+<span class="cstat-no" title="statement not covered" >    if (liked) {</span>
+<span class="cstat-no" title="statement not covered" >      return res.status(400).send("You've already liked this blog");</span>
     }
 &nbsp;
     const like = <span class="cstat-no" title="statement not covered" >new blogLike({ user_id: req.user.id, blog_id: req.params.id });</span>
@@ -456,8 +456,8 @@ export async function toggleLike(req, res) {
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return res.send("You liked the blog");</span>
   } catch (error) {
-<span class="cstat-no" title="statement not covered" >    console.error(error);</span>
-<span class="cstat-no" title="statement not covered" >    res.status(500).send("Server error");</span>
+    console.error(error);
+    res.status(500).send("Server error");
   }
 }
 &nbsp;
@@ -469,7 +469,7 @@ export { getAllBlogs, updateBlog, getBlogId, deleteBlog, createBlogWithImage };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-02-15T09:20:49.751Z
+                at 2023-02-15T12:50:14.177Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

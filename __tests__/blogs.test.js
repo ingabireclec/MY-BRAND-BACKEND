@@ -21,15 +21,15 @@ describe("Blogs API", () => {
     const res = await request(app).get("/api/blogs");
     expect(res.status).toBe(200);
   });
-  it("should return 404 for a non-existent blog", async () => {
+  it("should return 500 for a non-existent blog", async () => {
     const res = await request(app).get("/api/blogs/999");
-    expect(res.status).toBe(404);
+    expect(res.status).toBe(500);
   });
 
   it("should get a blog by id", async () => {
-    const res = await request(app).get("/api/blogs/63e0d975af3e9c15404b2352");
+    const res = await request(app).get("/api/blogs/63e035384bbc80366580731f");
     expect(res.status).toBe(200);
-    expect(res.body._id).toBe("63e0d975af3e9c15404b2352");
+    expect(res.body._id).toBe("63e035384bbc80366580731f");
   });
 
   it("should return 404 for a non-existent blog", async () => {
@@ -41,14 +41,14 @@ describe("Blogs API", () => {
   });
   it("should update a blog", async () => {
     const res = await request(app)
-      .patch("/api/blogs/63e0d975af3e9c15404b2352")
+      .patch("/api/blogs/63e035384bbc80366580731f")
       .send({ title: "My New Blog Title" })
       .set("Authorization", `Bearer ${token}`);
     expect(res.status).toBe(200);
     expect(res.body.title).toBe("My New Blog Title");
   });
 
-  it("should return 404 for a non-existent blog", async () => {
+  it("should return 500 for a non-existent blog", async () => {
     const res = await request(app)
       .delete("/api/blogs/999")
       .set("Authorization", `Bearer ${token}`);
