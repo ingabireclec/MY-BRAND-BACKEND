@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676387678855" clover="3.2.0">
-  <project timestamp="1676387678856" name="All files">
+<coverage generated="1676452849835" clover="3.2.0">
+  <project timestamp="1676452849835" name="All files">
     <metrics statements="225" coveredstatements="141" conditionals="48" coveredconditionals="17" methods="30" coveredmethods="16" elements="303" coveredelements="174" complexity="0" loc="225" ncloc="225" packages="8" files="19" classes="19"/>
     <package name="MY-BRAND-BACKEND">
       <metrics statements="15" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="1"/>
