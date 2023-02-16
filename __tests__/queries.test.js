@@ -1,11 +1,9 @@
 import request from "supertest";
 import app from "../index.js";
 import queryModel from "../src/models/queries.model";
-import jest from "jest";
+
 let token = "";
 beforeAll((done) => {
-  jest.setTimeout(30000);
-
   request(app)
     .post("/api/login")
     .send({
@@ -20,7 +18,7 @@ beforeAll((done) => {
       console.log(token);
       done();
     });
-}, 10000);
+});
 describe("Queries endpoints", () => {
   test("should get messages", async () => {
     const response = await request(app)

@@ -1,8 +1,6 @@
 import request from "supertest";
 import app from "../index";
-import jest from "jest";
 test("should login admin ", (done) => {
-  jest.setTimeout(30000);
   request(app)
     .post("/api/login")
     .send({

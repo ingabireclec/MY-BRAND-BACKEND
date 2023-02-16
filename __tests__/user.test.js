@@ -5,12 +5,10 @@ import {
   findOneUserService,
 } from "../src/services/auth.service.js";
 import jwt from "jsonwebtoken";
-import jest from "jest";
+
 let token;
 
 beforeAll((done) => {
-  jest.setTimeout(30000);
-
   request(app)
     .post("/api/login")
     .send({
@@ -24,7 +22,7 @@ beforeAll((done) => {
       token = res.body.token;
       done();
     });
-}, 10000);
+});
 
 describe("user", () => {
   test("should create users", (done) => {
