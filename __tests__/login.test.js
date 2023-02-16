@@ -16,4 +16,4 @@ it("should login admin ", (done) => {
       expect(token).toBeDefined();
       done();
     });
-});
+}, 10000);

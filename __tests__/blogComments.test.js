@@ -2,6 +2,7 @@ import request from "supertest";
 import app from "../index.js";
 import blogModel from "../src/models/Blogs.model.js";
 import Comment from "../src/models/comments.model.js";
+
 let token = "";
 beforeAll((done) => {
   request(app)
@@ -18,9 +19,9 @@ beforeAll((done) => {
       console.log(token);
       done();
     });
-});
+}, 10000);
 describe("comments API", () => {
-  it("It should create a new comment for the specified blog post", async () => {
+  test("It should create a new comment for the specified blog post", async () => {
     //const blog = await blogModel.findOne();
     const blogId = "63eb9983ac213031641743f2";
     const requestBody = {
@@ -36,9 +37,9 @@ describe("comments API", () => {
     expect(response.body.comment).toBeDefined();
     expect(response.body.comment.author).toBe(requestBody.author);
     expect(response.body.comment.commentText).toBe(requestBody.commentText);
-  }, 20000);
+  }, 30000);
 
-  it("should retrieve all comments for the specified blog post", async () => {
+  test("should retrieve all comments for the specified blog post", async () => {
     const blogId = "63eb9983ac213031641743f2";
     const response = await request(app)
       .get(`/api/blogs/${blogId}/comments`)

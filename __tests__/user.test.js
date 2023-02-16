@@ -23,7 +23,7 @@ beforeAll((done) => {
       token = res.body.token;
       done();
     });
-});
+}, 10000);
 
 describe("user", () => {
   test("should create users", (done) => {

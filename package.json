@@ -43,7 +43,7 @@
     "coverage-node": "^8.0.0",
     "coveralls": "^3.1.1",
     "cross-env": "^7.0.3",
-    "jest": "^29.4.2",
+    "jest": "^29.4.3",
     "supertest": "^6.3.3"
   }
 }

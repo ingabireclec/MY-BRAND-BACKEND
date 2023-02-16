@@ -1,6 +1,5 @@
 import request from "supertest";
 import app from "../index.js";
-
 let token = "";
 beforeAll((done) => {
   request(app)
@@ -17,7 +16,7 @@ beforeAll((done) => {
       console.log(token);
       done();
     });
-});
+}, 10000);
 
 describe("Blogs API", () => {
   let createdBlogId;

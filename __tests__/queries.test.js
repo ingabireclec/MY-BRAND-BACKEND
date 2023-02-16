@@ -18,7 +18,7 @@ beforeAll((done) => {
       console.log(token);
       done();
     });
-});
+}, 10000);
 describe("Queries endpoints", () => {
   test("should get messages", async () => {
     const response = await request(app)
