@@ -23,7 +23,7 @@ beforeAll((done) => {
 describe("comments API", () => {
   test("It should create a new comment for the specified blog post", async () => {
     //const blog = await blogModel.findOne();
-    const blogId = "";
+    const blogId = "63ee63d85ce9577df6cc02cd";
     const requestBody = {
       author: "unknown",
       commentText: "hahaha",
