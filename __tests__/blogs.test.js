@@ -91,7 +91,7 @@ describe("Blogs API", () => {
     // expect(res1.text).toEqual("You liked the blog");
 
     const res2 = await request(app)
-      .post("/api/blogs/63e0d83f043088bd763b502b/like")
+      .post("/api/blogs/63ee63d85ce9577df6cc02cd/like")
       .set("Authorization", `Bearer ${token}`);
     expect(res2.status).toBe(400);
     expect(res2.text).toEqual("You've already liked this blog");

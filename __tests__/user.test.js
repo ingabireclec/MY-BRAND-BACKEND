@@ -22,7 +22,7 @@ beforeAll((done) => {
       token = res.body.token;
       done();
     });
-});
+}, 30000);
 
 describe("user", () => {
   test("should create users", (done) => {
@@ -33,7 +33,13 @@ describe("user", () => {
         email: "ingabire@gmail.com",
         password: "12345",
       })
-      .end(done);
+      .end((err, res) => {
+        if (err) {
+          done(err);
+        }
+        token = res.body.token;
+        done();
+      });
   });
 });
 
