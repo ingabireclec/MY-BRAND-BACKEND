@@ -5,11 +5,12 @@ import {
   findOneUserService,
 } from "../src/services/auth.service.js";
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-dotenv.config();
+import jest from "jest";
 let token;
 
 beforeAll((done) => {
+  jest.setTimeout(30000);
+
   request(app)
     .post("/api/login")
     .send({

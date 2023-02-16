@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>15/20</span>
+                <span class='fraction'>1/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>15/20</span>
+                <span class='fraction'>1/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -127,22 +127,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -168,14 +168,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -186,28 +186,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Comment from "../models/comments.model.js";
 import blogModel from "../models/Blogs.model.js";
 &nbsp;
-const createComment = async (req, res) =&gt; {
-  const blogId = req.params.id;
-  const comment = new Comment({
+const createComment = <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
+  const blogId = <span class="cstat-no" title="statement not covered" >req.params.id;</span>
+  const comment = <span class="cstat-no" title="statement not covered" >new Comment({</span>
     author: req.body.author,
     commentText: req.body.commentText,
     blog_id: blogId,
   });
-  console.log(blogId);
-  const blog = blogModel.findOne(blogId);
-  if (blog) {
-    comment
+<span class="cstat-no" title="statement not covered" >  console.log(blogId);</span>
+  const blog = <span class="cstat-no" title="statement not covered" >blogModel.findOne(blogId);</span>
+<span class="cstat-no" title="statement not covered" >  if (blog) {</span>
+<span class="cstat-no" title="statement not covered" >    comment</span>
       .save()
-      .then(async (data) =&gt; {
-        await blogModel.findByIdAndUpdate(blogId, {
+      .then(<span class="fstat-no" title="function not covered" >as</span>ync (data) =&gt; {
+<span class="cstat-no" title="statement not covered" >        await blogModel.findByIdAndUpdate(blogId, {</span>
           $push: { comments: data._id },
         });
-        return res.status(200).json({ comment: data });
+<span class="cstat-no" title="statement not covered" >        return res.status(200).json({ comment: data });</span>
       })
       .catch(<span class="fstat-no" title="function not covered" >(e</span>rr) =&gt;
 <span class="cstat-no" title="statement not covered" >        res.status(404).json({ error: err, message: "Comment not added" })</span>
       );
-  } else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="else path not taken" >E</span>return res.status(404).json({ error: "Blog not found" });</span>
+  } else <span class="cstat-no" title="statement not covered" >return res.status(404).json({ error: "Blog not found" });</span>
 };
 // const getCommentsByBlogId = async (req, res) =&gt; {
 //   const blogId = req.params.id;
@@ -227,15 +227,15 @@ const createComment = async (req, res) =&gt; {
 //       res.status(404).json({ error: err });
 //     });
 // };
-export async function getCommentsByBlogId(req, res) {
-  try {
-    const blogId = req.params.id;
-    const blog = await blogModel.findOne({ _id: blogId }).populate("comments");
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (!blog) {
+export async function <span class="fstat-no" title="function not covered" >getCommentsByBlogId(</span>req, res) {
+<span class="cstat-no" title="statement not covered" >  try {</span>
+    const blogId = <span class="cstat-no" title="statement not covered" >req.params.id;</span>
+    const blog = <span class="cstat-no" title="statement not covered" >await blogModel.findOne({ _id: blogId }).populate("comments");</span>
+<span class="cstat-no" title="statement not covered" >    if (!blog) {</span>
 <span class="cstat-no" title="statement not covered" >      return res.status(404).json({ message: "Blog not found" });</span>
     }
-    const comments = blog.comments;
-    return res.status(200).json({ comments: comments });
+    const comments = <span class="cstat-no" title="statement not covered" >blog.comments;</span>
+<span class="cstat-no" title="statement not covered" >    return res.status(200).json({ comments: comments });</span>
   } catch (error) {
 <span class="cstat-no" title="statement not covered" >    console.error(error);</span>
 <span class="cstat-no" title="statement not covered" >    res.status(500).json({ message: "Server Error" });</span>
@@ -250,7 +250,7 @@ export { createComment };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-02-16T14:30:21.741Z
+                at 2023-02-16T15:49:39.351Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

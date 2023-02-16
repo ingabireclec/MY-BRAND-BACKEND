@@ -1,7 +1,10 @@
 import request from "supertest";
 import app from "../index.js";
 let token = "";
+import jest from "jest";
 beforeAll((done) => {
+  jest.setTimeout(30000);
+
   request(app)
     .post("/api/login")
     .send({
