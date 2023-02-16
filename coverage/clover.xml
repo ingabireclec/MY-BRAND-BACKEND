@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676568613441" clover="3.2.0">
-  <project timestamp="1676568613441" name="All files">
-    <metrics statements="234" coveredstatements="100" conditionals="52" coveredconditionals="5" methods="30" coveredmethods="11" elements="316" coveredelements="116" complexity="0" loc="234" ncloc="234" packages="8" files="19" classes="19"/>
+<coverage generated="1676570288301" clover="3.2.0">
+  <project timestamp="1676570288301" name="All files">
+    <metrics statements="234" coveredstatements="99" conditionals="52" coveredconditionals="5" methods="30" coveredmethods="11" elements="316" coveredelements="115" complexity="0" loc="234" ncloc="234" packages="8" files="19" classes="19"/>
     <package name="MY-BRAND-BACKEND">
       <metrics statements="16" coveredstatements="14" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="1"/>
       <file name="index.js" path="C:\Users\qwe\Desktop\andela\MY-BRAND-BACKEND\index.js">
@@ -19,13 +19,13 @@
         <line num="32" count="5" type="stmt"/>
         <line num="33" count="5" type="stmt"/>
         <line num="34" count="5" type="stmt"/>
-        <line num="39" count="4" type="stmt"/>
-        <line num="40" count="4" type="stmt"/>
+        <line num="39" count="3" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
       </file>
     </package>
     <package name="MY-BRAND-BACKEND.src.controllers">
-      <metrics statements="122" coveredstatements="31" conditionals="30" coveredconditionals="1" methods="15" coveredmethods="6"/>
+      <metrics statements="122" coveredstatements="30" conditionals="30" coveredconditionals="1" methods="15" coveredmethods="6"/>
       <file name="auth.controller.js" path="C:\Users\qwe\Desktop\andela\MY-BRAND-BACKEND\src\controllers\auth.controller.js">
         <metrics statements="32" coveredstatements="7" conditionals="10" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="8" count="5" type="stmt"/>
@@ -151,14 +151,14 @@
         <line num="56" count="0" type="stmt"/>
       </file>
       <file name="query.controller.js" path="C:\Users\qwe\Desktop\andela\MY-BRAND-BACKEND\src\controllers\query.controller.js">
-        <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="3" count="5" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
         <line num="8" count="5" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
       </file>
     </package>
     <package name="MY-BRAND-BACKEND.src.imageUpload">
