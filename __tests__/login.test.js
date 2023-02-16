@@ -1,6 +1,6 @@
 import request from "supertest";
 import app from "../index";
-it("should login admin ", (done) => {
+test("should login admin ", (done) => {
   request(app)
     .post("/api/login")
     .send({

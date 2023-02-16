@@ -21,7 +21,7 @@ beforeAll((done) => {
 describe("Blogs API", () => {
   let createdBlogId;
 
-  it("should create a new blog with image", async () => {
+  test("should create a new blog with image", async () => {
     const res = await request(app)
       .post("/api/blogs")
       .field("title", "My Blog")
@@ -34,23 +34,23 @@ describe("Blogs API", () => {
     createdBlogId = res.body._id;
   }, 15000);
 
-  it("should get all blogs", async () => {
+  test("should get all blogs", async () => {
     const res = await request(app).get("/api/blogs");
     expect(res.status).toBe(200);
   });
 
-  it("should return 500 for a non-existent blog", async () => {
+  test("should return 500 for a non-existent blog", async () => {
     const res = await request(app).get("/api/blogs/999");
     expect(res.status).toBe(500);
   });
 
-  it("should get a blog by id", async () => {
+  test("should get a blog by id", async () => {
     const res = await request(app).get(`/api/blogs/${createdBlogId}`);
     expect(res.status).toBe(200);
     expect(res.body._id).toBe(createdBlogId);
   });
 
-  it("should return 404 for a non-existent blog", async () => {
+  test("should return 404 for a non-existent blog", async () => {
     const res = await request(app)
       .patch("/api/blogs/999")
       .send({ title: "My New Blog Title" })
@@ -58,7 +58,7 @@ describe("Blogs API", () => {
     expect(res.status).toBe(404);
   }, 15000);
 
-  it("should update a blog", async () => {
+  test("should update a blog", async () => {
     const res = await request(app)
       .patch(`/api/blogs/${createdBlogId}`)
       .send({ title: "My New Blog Title" })
@@ -67,14 +67,14 @@ describe("Blogs API", () => {
     expect(res.body.title).toBe("My New Blog Title");
   }, 15000);
 
-  it("should return 500 for a non-existent blog", async () => {
+  test("should return 500 for a non-existent blog", async () => {
     const res = await request(app)
       .delete("/api/blogs/999")
       .set("Authorization", `Bearer ${token}`);
     expect(res.status).toBe(500);
   }, 15000);
 
-  it("should delete a blog", async () => {
+  test("should delete a blog", async () => {
     const res = await request(app)
       .delete(`/api/blogs/${createdBlogId}`)
       .set("Authorization", `Bearer ${token}`);
@@ -84,7 +84,7 @@ describe("Blogs API", () => {
     );
   }, 15000);
 
-  it("should toggle like a blog", async () => {
+  test("should toggle like a blog", async () => {
     // const res1 = await request(app)
     //   .post("/api/blogs/63e0d83f043088bd763b502b/like")
     //   .set("Authorization", `Bearer ${token}`);
