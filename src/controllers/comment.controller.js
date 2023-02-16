@@ -5,9 +5,10 @@ const createComment = async (req, res) => {
   const blogId = req.params.id;
   const comment = new Comment({
     author: req.body.author,
-    message: req.body.message,
+    commentText: req.body.commentText,
     blog_id: blogId,
   });
+  console.log(blogId);
   const blog = blogModel.findOne(blogId);
   if (blog) {
     comment

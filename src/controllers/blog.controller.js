@@ -77,11 +77,12 @@ const deleteBlog = async (req, res) => {
       res.status(404).json({ error: "Blog doesn't exist!" });
       return;
     }
-    res.status(204).json({ message: "Blog deleted successfully" });
+    res.status(200).json({ message: "Blog deleted successfully" });
   } catch {
     res.status(500).json({ error: "Internal server error" });
   }
 };
+
 // export async function toggleLike(req, res) {
 //   const blog = await blogModel.findOne({ _id: req.params.id });
 //   if (!blog) return res.status(404).send("Blog not found");
@@ -104,7 +105,9 @@ const deleteBlog = async (req, res) => {
 
 export async function toggleLike(req, res) {
   try {
+    console.log("req.params.id:", req.params.id);
     const blog = await blogModel.findById(req.params.id);
+    console.log("blog:", blog);
     if (!blog) {
       return res.status(404).send("Blog not found");
     }

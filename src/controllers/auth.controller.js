@@ -25,8 +25,28 @@ const handleNewUser = async (req, res) => {
   }
 };
 
+// const getUsers = async (req, res) => {
+//   try {
+//     const users = await getAllUsersService();
+//     res.status(200).json({ status: 200, success: true, data: users });
+//   } catch (error) {
+//     res
+//       .status(500)
+//       .json({ message: `Error when getting all users ${error.message}` });
+//   }
+// };
 const getUsers = async (req, res) => {
   try {
+    // Check if user is authenticated
+    if (!req.user) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    // Check if user is an admin
+    if (!req.user.isAdmin) {
+      return res.status(403).json({ message: "Forbidden" });
+    }
+
     const users = await getAllUsersService();
     res.status(200).json({ status: 200, success: true, data: users });
   } catch (error) {

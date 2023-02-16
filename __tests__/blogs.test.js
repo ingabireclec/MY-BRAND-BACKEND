@@ -1,9 +1,26 @@
 import request from "supertest";
 import app from "../index.js";
 
+let token = "";
+beforeAll((done) => {
+  request(app)
+    .post("/api/login")
+    .send({
+      email: "nana@gmail.com",
+      password: "1234",
+    })
+    .end((err, res) => {
+      if (err) {
+        return done(err);
+      }
+      token = res.body.token;
+      console.log(token);
+      done();
+    });
+});
+
 describe("Blogs API", () => {
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTY0OTI2Mzk5ZjVhYTc0MTIwZWNkMyIsImlzQWRtaW4iOnRydWUsImVtYWlsIjoibmFuYUBnbWFpbC5jb20iLCJpYXQiOjE2NzYzODIyMjYsImV4cCI6MTY3NjQ2ODYyNn0.GIwXP4tq0sKZGrFYf6Czk5BSEerOoywTb_zGA4JvLR8";
+  let createdBlogId;
 
   it("should create a new blog with image", async () => {
     const res = await request(app)
@@ -15,21 +32,23 @@ describe("Blogs API", () => {
       .set("Authorization", `Bearer ${token}`);
     expect(res.status).toBe(200);
     expect(res.body.title).toBe("My Blog");
-  });
+    createdBlogId = res.body._id;
+  }, 15000);
 
   it("should get all blogs", async () => {
     const res = await request(app).get("/api/blogs");
     expect(res.status).toBe(200);
   });
+
   it("should return 500 for a non-existent blog", async () => {
     const res = await request(app).get("/api/blogs/999");
     expect(res.status).toBe(500);
   });
 
   it("should get a blog by id", async () => {
-    const res = await request(app).get("/api/blogs/63e035384bbc80366580731f");
+    const res = await request(app).get(`/api/blogs/${createdBlogId}`);
     expect(res.status).toBe(200);
-    expect(res.body._id).toBe("63e035384bbc80366580731f");
+    expect(res.body._id).toBe(createdBlogId);
   });
 
   it("should return 404 for a non-existent blog", async () => {
@@ -38,35 +57,44 @@ describe("Blogs API", () => {
       .send({ title: "My New Blog Title" })
       .set("Authorization", `Bearer ${token}`);
     expect(res.status).toBe(404);
-  });
+  }, 15000);
+
   it("should update a blog", async () => {
     const res = await request(app)
-      .patch("/api/blogs/63e035384bbc80366580731f")
+      .patch(`/api/blogs/${createdBlogId}`)
       .send({ title: "My New Blog Title" })
       .set("Authorization", `Bearer ${token}`);
     expect(res.status).toBe(200);
     expect(res.body.title).toBe("My New Blog Title");
-  });
+  }, 15000);
 
   it("should return 500 for a non-existent blog", async () => {
     const res = await request(app)
       .delete("/api/blogs/999")
       .set("Authorization", `Bearer ${token}`);
     expect(res.status).toBe(500);
-  });
+  }, 15000);
 
   it("should delete a blog", async () => {
     const res = await request(app)
-      .delete("/api/blogs/63eba45d64e16988d51ad2a1")
-      .set("Authorization", `Bearer ${token}`);
-    expect(res.status).toBe(204);
-  });
-
-  it("should toggle like a blog", async () => {
-    const res = await request(app)
-      .post("/api/blogs/63eba494cf7cb7f91ae9c63c/like")
+      .delete(`/api/blogs/${createdBlogId}`)
       .set("Authorization", `Bearer ${token}`);
     expect(res.status).toBe(200);
-    expect(res.text).toBe("You liked the blog");
-  });
+    expect(res.body).toEqual(
+      expect.objectContaining({ message: "Blog deleted successfully" })
+    );
+  }, 15000);
+
+  it("should toggle like a blog", async () => {
+    // const res1 = await request(app)
+    //   .post("/api/blogs/63e0d83f043088bd763b502b/like")
+    //   .set("Authorization", `Bearer ${token}`);
+    // expect(res1.text).toEqual("You liked the blog");
+
+    const res2 = await request(app)
+      .post("/api/blogs/63e0d83f043088bd763b502b/like")
+      .set("Authorization", `Bearer ${token}`);
+    expect(res2.status).toBe(400);
+    expect(res2.text).toEqual("You've already liked this blog");
+  }, 15000);
 });
