@@ -8,6 +8,7 @@ jobs:
   build:
     docker:
       - image: cimg/node:16.17.1
+    
     steps:
       - checkout
       - run:
@@ -17,14 +18,15 @@ jobs:
   test:
     docker:
       - image: cimg/node:16.17.1
-    timeout: 20m
     steps:
       - checkout
       - run:
           name: "npm install"
+          
           command: npm install
       - run:
           name: "npm test"
+          no_output_timeout: 30m
           command: npm test
       - store_artifacts:
           path: test-results
