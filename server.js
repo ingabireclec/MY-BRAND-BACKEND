@@ -14,5 +14,5 @@ const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Server has started on http://localhost:${PORT} `);
-  swaggerDocs(app, PORT);
+  // swaggerDocs(app, PORT);
 });
