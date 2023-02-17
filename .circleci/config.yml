@@ -1,10 +1,9 @@
 version: 2.1
+
 orbs:
   node: circleci/node@4.7.0
   coveralls: coveralls/coveralls@1.0.4
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build:
     docker:
@@ -26,16 +25,13 @@ jobs:
       - run:
           name: "npm test"
           command: npm test
-      - coveralls/upload
-      - store_artifacts: # special step to save test results as as artifact
-          # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
+      - store_artifacts:
           path: test-results
-          prefix: tests
-      - store_artifacts: # for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
+      - store_artifacts:
           path: coverage
-          prefix: coverage
-      - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+      - store_test_results:
           path: test-results
+      - coveralls/upload
 
 workflows:
   build_and_test:

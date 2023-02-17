@@ -5,7 +5,8 @@ import queryRouter from "./src/routes/queries.routes.js";
 import commentRouter from "./src/routes/comments.routes.js";
 import authenticationRoutes from "./src/routes/auth.routes.js";
 import bodyParser from "body-parser";
-
+import swaggerDoc from "swagger-ui-express";
+import swaggerDocumentation from "../src/utils/documentation.js";
 const app = express();
 
 app.use(
@@ -15,6 +16,8 @@ app.use(
 );
 
 app.use(express.urlencoded({ extended: false }));
+app.use("/documentations", swaggerDoc.serve);
+app.use("/documentations", swaggerDoc.setup(swaggerDocumentation));
 
 app.use("/api", queryRouter);
 app.use("/api", BlogRoutes);
@@ -28,7 +31,7 @@ app.get("/", (_, res) => {
     message: "Welcome",
   });
 });
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 const MONGO_URL = process.env.MONGO_URL;
 mongoose.set("strictQuery", false);
 mongoose

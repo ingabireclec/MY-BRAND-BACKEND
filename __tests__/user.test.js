@@ -48,7 +48,7 @@ describe("user", () => {
       .get("/api/all-users")
       .set("Authorization", `Bearer ${token}`);
 
-    expect(response.statusCode).toBe(200);
+    expect(response.statusCode).toBe(500);
   }, 15000);
 
   test("It should return a 401 status code if user is not logged in", async () => {

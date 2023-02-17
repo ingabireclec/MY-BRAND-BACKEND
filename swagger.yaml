@@ -1,0 +1,263 @@
+openapi: 3.0.0
+info:
+  title: My API
+  version: 1.0.0
+  description: My API description
+
+paths:
+  /api:
+    get:
+      summary: API endpoint
+      description: apis of my brand backend
+      responses:
+        "200":
+          description: OK
+
+  /blogs:
+    get:
+      summary: Get all blogs
+      description: Returns all blogs from the database
+      responses:
+        "200":
+          description: OK
+
+    post:
+      summary: Create a blog
+      description: Creates a new blog with the given data
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: My blog title
+                description:
+                  type: string
+                  example: My blog content
+                category:
+                  type: string
+                  example: life
+                image:
+                  type: string
+                  format: binary
+
+      responses:
+        "201":
+          description: Created
+
+  /blogs/{id}:
+    get:
+      summary: Get a blog by ID
+      description: Returns a blog with the given ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the blog
+      responses:
+        "200":
+          description: OK
+
+    patch:
+      summary: Update a blog by ID
+      description: Updates a blog with the given ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the blog
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: My updated blog title
+                descripiton:
+                  type: string
+                  example: My updated blog descripition
+                category:
+                  type: string
+                  example: my updated blog category
+      responses:
+        "200":
+          description: OK
+
+    delete:
+      summary: Delete a blog by ID
+      description: Deletes a blog with the given ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the blog
+      responses:
+        "204":
+          description: No Content
+
+  /auth/signup:
+    post:
+      summary: Create a new user
+      description: Creates a new user with the given data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: johndoe
+                email:
+                  type: string
+                  example: johndoe@example.com
+                password:
+                  type: string
+                  example: password123
+      responses:
+        "201":
+          description: Created
+
+  /auth/all-users:
+    get:
+      summary: Get all users
+      description: Returns a list of all users in the system
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: OK
+
+  /auth/login:
+    post:
+      summary: Authenticate a user
+      description: Authenticates a user with the given credentials
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: johndoe@example.com
+                password:
+                  type: string
+                  example: password123
+      responses:
+        "200":
+          description: OK
+
+  /blogs/{id}/comments:
+    post:
+      summary: Create a comment for a blog post
+      description: Creates a new comment with the given data for a specific blog post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the blog post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                  example: My comment text
+      responses:
+        "201":
+          description: Created
+
+    get:
+      summary: Get comments for a blog post
+      description: Returns all comments for a specific blog post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the blog post
+      responses:
+        "200":
+          description: OK
+
+  /comments/{id}:
+    get:
+      summary: Get a comment by ID
+      description: Returns a comment with the given ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the comment
+      responses:
+        "200":
+          description: OK
+  /messages:
+    get:
+      summary: Get all queries
+      description: Returns all queries from the database
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: OK
+
+    post:
+      summary: Create a query
+      description: Creates a new query with the given data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: John Doe
+                email:
+                  type: string
+                  example: john.doe@example.com
+                message:
+                  type: string
+                  example: My message
+
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Query created successfully
+# securitySchemes:
+#   bearerAuth:
+#     type: http
+#     scheme: bearer
+#     bearerFormat: JWT
