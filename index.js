@@ -29,9 +29,10 @@ app.get("/", (_, res) => {
   });
 });
 const PORT = process.env.PORT || 5000;
+const MONGO_URL = process.env.MONGO_URL;
 mongoose.set("strictQuery", false);
 mongoose
-  .connect("mongodb://localhost:27017/andeladb", {
+  .connect(MONGO_URL, {
     useNewUrlParser: true,
   })
   .then(() => {
