@@ -41,6 +41,7 @@ describe("comments API", () => {
 
   test("should retrieve all comments for the specified blog post", async () => {
     // const blogId = "63eb9983ac213031641743f2";
+    //atlas server id
     const blogId = "63ee63d85ce9577df6cc02cd";
     const response = await request(app)
       .get(`/api/blogs/${blogId}/comments`)

@@ -22,7 +22,7 @@ beforeAll((done) => {
       token = res.body.token;
       done();
     });
-}, 30000);
+});
 
 describe("user", () => {
   test("should create users", (done) => {
@@ -41,9 +41,7 @@ describe("user", () => {
         done();
       });
   });
-});
 
-describe("GET /all-users", () => {
   test("It should return all users with a 200 status code", async () => {
     const response = await request(app)
       .get("/api/all-users")
