@@ -1,5 +1,6 @@
 import request from "supertest";
 import app from "../index";
+let token;
 test("should login admin ", (done) => {
   request(app)
     .post("/api/login")
@@ -11,7 +12,8 @@ test("should login admin ", (done) => {
       if (err) {
         return done(err);
       }
-      const token = res.body.token;
+      token = res.body.token;
+      console.log(token);
       expect(res.status).toBe(200);
       done();
     });

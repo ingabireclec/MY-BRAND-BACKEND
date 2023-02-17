@@ -38,6 +38,7 @@ describe("user", () => {
           done(err);
         }
         token = res.body.token;
+        console.log(token);
         done();
       });
   });
