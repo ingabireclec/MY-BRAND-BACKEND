@@ -26,18 +26,18 @@ const fileFilter = (req, file, cb) => {
 };
 const uploads = multer({ storage, fileFilter });
 
-blogRouter.get("/blogs", getAllBlogs);
+blogRouter.get("/blogs/", getAllBlogs);
 blogRouter.post(
   "/blogs",
   [isLoggedIn, isAdmin, uploads.single("image"), validate(blogCreationSchema)],
   createBlogWithImage
 );
-blogRouter.get("/blogs/:id", getBlogId);
+blogRouter.get("/blogs/getOne/:id", getBlogId);
 blogRouter.patch(
   "/blogs/:id",
   [isLoggedIn, isAdmin, uploads.single("image")],
   updateBlog
 );
-blogRouter.delete("/blogs/:id", [isLoggedIn, isAdmin], deleteBlog);
+blogRouter.delete("/blogs/delete/:id", [isLoggedIn, isAdmin], deleteBlog);
 blogRouter.post("/blogs/:id/like", isLoggedIn, toggleLike);
 export default blogRouter;

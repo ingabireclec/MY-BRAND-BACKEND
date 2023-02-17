@@ -15,6 +15,6 @@ commentRouter.post(
   createComment
 );
 
-commentRouter.get("/blogs/:id/comments", isLoggedIn, getCommentsByBlogId);
+commentRouter.get("/blogs/:id/comments/", isLoggedIn, getCommentsByBlogId);
 
 export default commentRouter;

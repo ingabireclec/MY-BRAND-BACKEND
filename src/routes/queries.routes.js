@@ -10,6 +10,6 @@ import validate from "../middleware/validation/validation.middleware.js";
 const queryRouter = Router();
 
 queryRouter.get("/messages", [isLoggedIn, isAdmin], getAllQueries);
-queryRouter.post("/messages", validate(queriesSchema), createQuery);
+queryRouter.post("/messages/", validate(queriesSchema), createQuery);
 
 export default queryRouter;
