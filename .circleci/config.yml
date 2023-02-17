@@ -17,6 +17,7 @@ jobs:
   test:
     docker:
       - image: cimg/node:16.17.1
+    timeout: 20m
     steps:
       - checkout
       - run:
