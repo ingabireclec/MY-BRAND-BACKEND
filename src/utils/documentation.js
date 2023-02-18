@@ -11,6 +11,10 @@ const swaggerDocumentations = {
   },
   servers: [
     {
+      url: "https://clec-brandapi.onrender.com",
+      name: "production server",
+    },
+    {
       url: "http://localhost:3000",
       name: "development server",
     },

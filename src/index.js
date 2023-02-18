@@ -1,12 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
-import BlogRoutes from "./src/routes/blog.routes.js";
-import queryRouter from "./src/routes/queries.routes.js";
-import commentRouter from "./src/routes/comments.routes.js";
-import authenticationRoutes from "./src/routes/auth.routes.js";
+import BlogRoutes from "./routes/blog.routes.js";
+import queryRouter from "./routes/queries.routes.js";
+import commentRouter from "./routes/comments.routes.js";
+import authenticationRoutes from "./routes/auth.routes.js";
 import bodyParser from "body-parser";
 import swaggerDoc from "swagger-ui-express";
-import swaggerDocumentation from "./src/utils/documentation.js";
+import swaggerDocumentation from "./utils/documentation.js";
 const app = express();
 
 app.use(
