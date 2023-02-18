@@ -44,7 +44,7 @@ describe("comments API", () => {
     //atlas server id
     const blogId = "63ee63d85ce9577df6cc02cd";
     const response = await request(app)
-      .get(`/api/blogs/${blogId}/comments`)
+      .get(`/api/blogs/${blogId}/comments/`)
       .set("Authorization", `Bearer ${token}`);
 
     expect(response.statusCode).toBe(200);

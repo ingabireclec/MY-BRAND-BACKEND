@@ -32,7 +32,7 @@ describe("Queries endpoints", () => {
       email: "naija@example.com",
       message: "Test message",
     };
-    const response = await request(app).post("/api/messages").send(newQuery);
+    const response = await request(app).post("/api/messages/").send(newQuery);
     expect(response.statusCode).toEqual(200);
     expect(response.body).toMatchObject(newQuery);
     const savedQuery = await queryModel.findOne(newQuery);
