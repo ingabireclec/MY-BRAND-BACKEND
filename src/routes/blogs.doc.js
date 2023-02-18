@@ -223,7 +223,7 @@ const likeBlog = {
       in: "path",
       description: "ID of the blog post",
       required: true,
-      type: "string",
+      type: "number",
     },
   ],
   responses: {
