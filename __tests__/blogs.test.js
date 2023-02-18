@@ -39,9 +39,9 @@ describe("Blogs API", () => {
     expect(res.status).toBe(200);
   });
 
-  test("should return 500 for a non-existent blog", async () => {
+  test("should return 404 for a non-existent blog", async () => {
     const res = await request(app).get("/api/blogs/999");
-    expect(res.status).toBe(500);
+    expect(res.status).toBe(404);
   });
 
   test("should get a blog by id", async () => {
@@ -67,11 +67,11 @@ describe("Blogs API", () => {
     expect(res.body.title).toBe("My New Blog Title");
   }, 15000);
 
-  test("should return 500 for a non-existent blog", async () => {
+  test("should return 404 for a non-existent blog", async () => {
     const res = await request(app)
       .delete("/api/blogs/999")
       .set("Authorization", `Bearer ${token}`);
-    expect(res.status).toBe(500);
+    expect(res.status).toBe(404);
   }, 15000);
 
   test("should delete a blog", async () => {
