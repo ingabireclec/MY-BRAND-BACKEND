@@ -1,5 +1,5 @@
 import request from "supertest";
-import app from "../index.js";
+import app from "../src/index.js";
 import blogModel from "../src/models/Blogs.model.js";
 import Comment from "../src/models/comments.model.js";
 

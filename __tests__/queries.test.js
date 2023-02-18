@@ -1,5 +1,5 @@
 import request from "supertest";
-import app from "../index.js";
+import app from "../src/index.js";
 import queryModel from "../src/models/queries.model";
 
 let token = "";

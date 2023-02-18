@@ -1,5 +1,5 @@
 import request from "supertest";
-import app from "../index";
+import app from "../src/index.js";
 let token;
 test("should login admin ", (done) => {
   request(app)
