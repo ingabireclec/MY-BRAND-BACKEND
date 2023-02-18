@@ -18,8 +18,11 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package-lock.json" }}
       - run:
-          name: Build and test
-          command: npm run build && npm test:prod
+          name: test
+          command: npm run test:prod
+      - run:
+          name: Build
+          command: npm run build
       - run:
           name: Report coverage to Coveralls
           command: npm run coveralls
