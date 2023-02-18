@@ -45,7 +45,7 @@ describe("Blogs API", () => {
   });
 
   test("should get a blog by id", async () => {
-    const res = await request(app).get(`/api/blogs/${createdBlogId}`);
+    const res = await request(app).get(`/api/blogs/getOne/${createdBlogId}`);
     expect(res.status).toBe(200);
     expect(res.body._id).toBe(createdBlogId);
   });
@@ -76,7 +76,7 @@ describe("Blogs API", () => {
 
   test("should delete a blog", async () => {
     const res = await request(app)
-      .delete(`/api/blogs/${createdBlogId}`)
+      .delete(`/api/blogs/delete/${createdBlogId}`)
       .set("Authorization", `Bearer ${token}`);
     expect(res.status).toBe(200);
     expect(res.body).toEqual(
