@@ -73,15 +73,20 @@ const createBlog = {
               description: "Title of the article",
               example: "Article Title",
             },
-            picture: {
+            description: {
+              type: "string",
+              description: "description of the article",
+              example: "description",
+            },
+            category: {
+              type: "string",
+              description: "category of the article",
+              example: "life",
+            },
+            image: {
               type: "string",
               format: "binary",
               description: "Picture",
-            },
-            description: {
-              type: "string",
-              description: "Description of the article",
-              example: "description",
             },
           },
         },
