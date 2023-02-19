@@ -11,7 +11,7 @@
     "build": "babel src -d dist",
     "test:dev": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll --coverage --verbose --silent --detectOpenHandles --testTimeout=20000 --forceExit",
     "test:prod": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage --verbose --silent --detectOpenHandles --testTimeout=20000 --forceExit",
-    "start": "npm run build && node dist/index.js",
+    "start": "node dist/index.js",
     "dev": "nodemon --exec babel-node server.js",
     "coveralls": "NODE_OPTIONS=--experimental-vm-modules jest --coverage && cat ./coverage/lcov.info | coveralls --testTimeout=45000"
   },
