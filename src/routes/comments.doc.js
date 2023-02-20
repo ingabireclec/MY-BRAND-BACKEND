@@ -3,6 +3,11 @@ const getCommentsByBlogId = {
   tags: ["Comments"],
   description:
     "Retrieve a list of all comments associated with the specified blog post. To retrieve comments for a specific blog post, include the blog's ID in the URL as a parameter (e.g. /blogs/{blogId}/comments).",
+  security: [
+    {
+      token: [],
+    },
+  ],
   parameters: [
     {
       name: "blogId",
@@ -47,7 +52,7 @@ const createComment = {
   description: "create a new comment",
   security: [
     {
-      auth_token: [],
+      token: [],
     },
   ],
   requestBody: {
@@ -56,15 +61,15 @@ const createComment = {
         schema: {
           type: "object",
           properties: {
-            commentText: {
-              type: "string",
-              description: "comment on the blog",
-              example: "Learning",
-            },
             author: {
               type: "string",
               description: "name of the commentor",
               example: "amanda",
+            },
+            commentText: {
+              type: "string",
+              description: "comment on the blog",
+              example: "Learning",
             },
             blogId: {
               type: "string",
