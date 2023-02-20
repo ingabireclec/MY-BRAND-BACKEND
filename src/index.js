@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors";
 import BlogRoutes from "./routes/blog.routes.js";
 import queryRouter from "./routes/queries.routes.js";
 import commentRouter from "./routes/comments.routes.js";
@@ -8,7 +9,7 @@ import bodyParser from "body-parser";
 import swaggerDoc from "swagger-ui-express";
 import swaggerDocumentation from "./utils/documentation.js";
 const app = express();
-
+app.use(cors());
 app.use(
   bodyParser.json({
     limit: "50mb",
