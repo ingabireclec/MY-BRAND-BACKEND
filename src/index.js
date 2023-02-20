@@ -9,7 +9,6 @@ import bodyParser from "body-parser";
 import swaggerDoc from "swagger-ui-express";
 import swaggerDocumentation from "./utils/documentation.js";
 const app = express();
-app.use(cors());
 app.use(
   bodyParser.json({
     limit: "50mb",
