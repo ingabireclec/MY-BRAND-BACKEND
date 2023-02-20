@@ -176,13 +176,18 @@ const updateBlog = {
                 type: "string",
                 description: "Title of the updated artcle",
               },
-              picture: {
-                type: "string",
-                description: "Image of the updated article (url)",
-              },
+
               description: {
                 type: "string",
                 description: "Description of the updated article",
+              },
+              category: {
+                type: "string",
+                description: "category of the updated article",
+              },
+              image: {
+                type: "string",
+                description: "Image of the updated article (url)",
               },
             },
           },
