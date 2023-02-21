@@ -71,9 +71,9 @@ const createComment = {
               description: "comment on the blog",
               example: "Learning",
             },
-            blogId: {
+            blog_id: {
               type: "string",
-              description: " the blog id ",
+              description: "the blog id",
               example: "63ee63bd5ce9577df6cc02c9",
             },
           },
