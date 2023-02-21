@@ -101,10 +101,10 @@ const createComment = {
 };
 
 const commentRouteDoc = {
-  "/api/blogs/:id/comments": {
+  "/api/blogs/{id}/comments": {
     post: createComment,
   },
-  "/api/blogs/:id/comments/": {
+  "/api/blogs/{id}/comments/": {
     get: getCommentsByBlogId,
   },
 };

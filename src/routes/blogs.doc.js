@@ -277,17 +277,17 @@ const blogRouteDoc = {
   "/api/blogs/": {
     get: listOfAllBlogs,
   },
-  "/api/blogs/getOne/:id": {
+  "/api/blogs/getOne/{id}": {
     get: getoneBlog,
   },
 
-  "/api/blogs/:id": {
+  "/api/blogs/{id}": {
     patch: updateBlog,
   },
-  "/api/blogs/delete/:id": {
+  "/api/blogs/delete/{id}": {
     delete: deleteBlog,
   },
-  "/api/blogs/:id/like": {
+  "/api/blogs/{id}/like": {
     post: likeBlog,
   },
 };
