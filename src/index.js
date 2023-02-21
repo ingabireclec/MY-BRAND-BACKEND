@@ -14,7 +14,13 @@ app.use(
     limit: "50mb",
   })
 );
-
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,PUT,POST,DELETE",
+    allowedHeaders: "Content-Type, Authorization",
+  })
+);
 app.use(express.urlencoded({ extended: false }));
 app.use("/documentations", swaggerDoc.serve);
 app.use("/documentations", swaggerDoc.setup(swaggerDocumentation));
