@@ -1,23 +1,15 @@
 //get all blogs swagger documentation
-const getCommentsByBlogId = {
+const getoneBlogComments = {
   tags: ["Comments"],
-  description:
-    "Retrieve a list of all comments associated with the specified blog post. To retrieve comments for a specific blog post, include the blog's ID in the URL as a parameter (e.g. /blogs/{blogId}/comments).",
-  security: [
-    {
-      token: [],
-    },
-  ],
+  summary: "get user by path id",
+  description: "get single a blog by id",
   parameters: [
     {
-      name: "blogId",
+      name: "id",
       in: "path",
-      description: "ID of the blog post to retrieve comments for",
-      required: true,
-      schema: {
-        type: "string",
-        example: "123", // <-- replace with example blog ID
-      },
+      description: "id of the user",
+      type: "string",
+      example: "hfbjsd2345njndfjhcbe3",
     },
   ],
   responses: {
@@ -27,23 +19,60 @@ const getCommentsByBlogId = {
         "application/json": {
           schema: {
             type: "object",
-            example: {
-              comments: [
-                {
-                  _id: "63f38721f14c8e1312f28918",
-                  commentText: "hahahah",
-                  author: "nana gmail.com",
-                  blog_id: "123",
-                },
-                // ...
-              ],
-            },
           },
         },
       },
     },
+    404: {
+      description: "blog not found",
+    },
   },
 };
+// const getCommentsByBlogId = {
+//   tags: ["Comments"],
+//   description:
+//     "Retrieve a list of all comments associated with the specified blog post. To retrieve comments for a specific blog post, include the blog's ID in the URL as a parameter (e.g. /blogs/{blogId}/comments).",
+//   security: [
+//     {
+//       token: [],
+//     },
+//   ],
+//   parameters: [
+//     {
+//       name: "blogId",
+//       in: "path",
+//       description: "ID of the blog post to retrieve comments for",
+//       required: true,
+//       schema: {
+//         type: "string",
+//         example: "123", // <-- replace with example blog ID
+//       },
+//     },
+//   ],
+//   responses: {
+//     200: {
+//       description: "OK",
+//       content: {
+//         "application/json": {
+//           schema: {
+//             type: "object",
+//             example: {
+//               comments: [
+//                 {
+//                   _id: "63f38721f14c8e1312f28918",
+//                   commentText: "hahahah",
+//                   author: "nana gmail.com",
+//                   blog_id: "123",
+//                 },
+//                 // ...
+//               ],
+//             },
+//           },
+//         },
+//       },
+//     },
+//   },
+// };
 
 //create a blog swagger documentation
 
@@ -105,7 +134,7 @@ const commentRouteDoc = {
     post: createComment,
   },
   "/api/blogs/{id}/comments/": {
-    get: getCommentsByBlogId,
+    get: getoneBlogComments,
   },
 };
 
