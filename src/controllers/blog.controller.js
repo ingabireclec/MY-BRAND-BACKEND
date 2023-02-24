@@ -117,7 +117,7 @@ export async function toggleLike(req, res) {
       blog_id: req.params.id,
     });
     if (liked) {
-      return res.status(400).send("You've already liked this blog");
+      return res.send("You've already liked this blog");
     }
 
     const like = new blogLike({ user_id: req.user.id, blog_id: req.params.id });
